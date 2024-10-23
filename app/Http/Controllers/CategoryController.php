@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -11,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();        
+        return view('categories.index', compact('categories')); // Ensure you create a view for this
     }
 
     /**
@@ -35,7 +37,8 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('categories.show', compact('category')); // Create a view to show a category
     }
 
     /**
