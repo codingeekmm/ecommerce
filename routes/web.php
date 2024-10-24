@@ -7,10 +7,7 @@ use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\OrderController;
 use App\Http\Controllers\Web\OrderItemController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+// Change welcome page to product list
 Route::get('/', [ProductController::class, 'index']);
 
 // User Routes
