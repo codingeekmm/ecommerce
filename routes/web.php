@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\UserController;
 use App\Http\Controllers\Web\ProductController;
@@ -7,20 +8,34 @@ use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\OrderController;
 use App\Http\Controllers\Web\OrderItemController;
 
-// Change welcome page to product list
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// User Routes
-Route::resource('users', UserController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Category Routes
-Route::resource('categories', CategoryController::class);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-// Product Routes
-Route::resource('products', ProductController::class);
+    // User Routes
+    Route::resource('users', UserController::class);
 
-// Order Routes
-Route::resource('orders', OrderController::class);
+    // Category Routes
+    Route::resource('categories', CategoryController::class);
 
-// Order Item Routes
-Route::resource('order-items', OrderItemController::class);
+    // Product Routes
+    Route::resource('products', ProductController::class);
+
+    // Order Routes
+    Route::resource('orders', OrderController::class);
+
+    // Order Item Routes
+    Route::resource('order-items', OrderItemController::class);
+
+});
+
+require __DIR__.'/auth.php';

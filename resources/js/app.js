@@ -1,8 +1,7 @@
 import './bootstrap';
-import { createApp } from 'vue';
-import ProductsComponent from './components/ProductsComponent.vue';
 
-const app = createApp({});
-app.component('products-component', ProductsComponent);
-app.mount('#app');
+import Alpine from 'alpinejs';
 
+window.Alpine = Alpine;
+
+Alpine.start();
