@@ -55,8 +55,19 @@ class ProductApiController extends Controller
 
     public function destroy($id)
     {
+        // Step 1: Find the product, or return a 404 if not found
         $product = Product::findOrFail($id);
+        
+        // Step 2: Create an in-memory copy of the product to return later
+        $deletedProduct = $product->replicate(); 
+        
+        // Step 3: Delete the product from the database
         $product->delete();
-        return response()->json(null, 204);
+        
+        // Step 4: Return the details of the deleted product
+        return response()->json([
+            'message' => 'Product deleted successfully.',
+            'product' => $deletedProduct
+        ], 200);
     }
 }
