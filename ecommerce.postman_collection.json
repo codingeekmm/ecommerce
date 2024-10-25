@@ -17,7 +17,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "8|seZUgzMOi4c8LvqLjoDcaoLGF1hDNQ4IHK7qOHggdbe85d7c",
+									"value": "2|vNyeoTIBDikmQeW4UnjPf3ZqRiNpuLVck5SLAyTTada4066a",
 									"type": "string"
 								}
 							]
@@ -42,6 +42,16 @@
 				{
 					"name": "get-product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|vNyeoTIBDikmQeW4UnjPf3ZqRiNpuLVck5SLAyTTada4066a",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -63,6 +73,16 @@
 				{
 					"name": "create-product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|vNyeoTIBDikmQeW4UnjPf3ZqRiNpuLVck5SLAyTTada4066a",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -73,7 +93,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Product 9\",\r\n    \"description\": \"Mac Book Air\",\r\n    \"price\": \"560.00\",\r\n    \"stock\": 1,\r\n    \"category_id\": 2\r\n}\r\n",
+							"raw": "{\r\n    \"name\": \"Product 6\",\r\n    \"description\": \"Mac Book Air\",\r\n    \"price\": \"560.00\",\r\n    \"stock\": 1,\r\n    \"category_id\": 2\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,6 +118,16 @@
 				{
 					"name": "update-product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|vNyeoTIBDikmQeW4UnjPf3ZqRiNpuLVck5SLAyTTada4066a",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -108,7 +138,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Product 7 Update\",\r\n    \"description\": \"Mac Book Air Update\",\r\n    \"price\": \"560.22\",\r\n    \"stock\": 2,\r\n    \"category_id\": 2\r\n}",
+							"raw": "{\r\n    \"name\": \"Product 6 Update\",\r\n    \"description\": \"Mac Book Air Update\",\r\n    \"price\": \"560.22\",\r\n    \"stock\": 2,\r\n    \"category_id\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -116,7 +146,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/products/7",
+							"raw": "http://localhost:8000/api/products/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -125,7 +155,7 @@
 							"path": [
 								"api",
 								"products",
-								"7"
+								"6"
 							]
 						}
 					},
@@ -134,10 +164,20 @@
 				{
 					"name": "delete-product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|vNyeoTIBDikmQeW4UnjPf3ZqRiNpuLVck5SLAyTTada4066a",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/products/9",
+							"raw": "http://localhost:8000/api/products/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -146,7 +186,7 @@
 							"path": [
 								"api",
 								"products",
-								"9"
+								"6"
 							]
 						}
 					},
@@ -170,7 +210,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"mm@example.com\",\r\n    \"password\": \"password\"\r\n}",
+							"raw": "{\r\n    \"email\": \"apiuser@example.com\",\r\n    \"password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -202,12 +242,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Myintmo",
+									"value": "Api User",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "mm@example.com",
+									"value": "apiuser@example.com",
 									"type": "text"
 								},
 								{
