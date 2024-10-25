@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProductResource;
+use App\Http\Controllers\Api\BaseApiController;
 
-class ProductApiController extends Controller
-{
+class ProductApiController extends BaseApiController
+{    
     public function index()
-    {
-        return Product::with('category')->get();
-        // return ProductResource::collection(Product::with('category')->get());
+    {               
+        return ProductResource::collection(Product::with('category')->get());
+       
     }
 
     public function store(Request $request)
